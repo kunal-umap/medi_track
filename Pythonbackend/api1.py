@@ -5,19 +5,19 @@ import io
 
 app = Flask(__name__)
 
-# HTML form to upload image
-UPLOAD_HTML = '''
-<!doctype html>
-<html>
-<head><title>Upload Image</title></head>
-<body>
-<form method="post" action="/upload" enctype="multipart/form-data">
-  <input type="file" name="image">
-  <input type="submit" value="Upload">
-</form>
-</body>
-</html>
-'''
+# # HTML form to upload image
+# UPLOAD_HTML = '''
+# <!doctype html>
+# <html>
+# <head><title>Upload Image</title></head>
+# <body>
+# <form method="post" action="/upload" enctype="multipart/form-data">
+#   <input type="file" name="image">
+#   <input type="submit" value="Upload">
+# </form>
+# </body>
+# </html>
+# '''
 
 @app.route('/')
 def upload_form():

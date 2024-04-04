@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LoginSignup.css'; 
 
-function Login() {
+function LoginSignup() {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
 
   const handleSignUpClick = () => {
@@ -109,4 +109,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginSignup;
