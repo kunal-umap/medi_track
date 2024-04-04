@@ -1,13 +1,19 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { HomePage } from './pages/Home.page';
+
 import LoginSignup from './pages/LoginSignup/LoginSignup';
+import HomePage from './pages/HomePage/HomePage';
+import { ColorSchemeToggle } from './components/ColorSchemeToggle/ColorSchemeToggle';
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />,
+    element: <HomePage/>,
     children : [
+      {
+        path: '/',
+        element: <ColorSchemeToggle/>
+      }
       
     ]
   },
