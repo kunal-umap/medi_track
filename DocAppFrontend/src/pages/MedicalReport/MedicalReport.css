@@ -1,0 +1,17 @@
+
+.RecordsCont {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* flex-shrink: inherit; */
+}
+@media (max-width: 698px) {
+    .RecordsCont {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+    }
+}
+
