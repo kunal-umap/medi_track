@@ -10,7 +10,7 @@ export default function HomeReport(props) {
 //   const [data,setData] = useState([]);
   // const getData = async () => {
   //   const reportData = await getRecordAction({
-  //     username: "jggabar"
+  //     username: "jggabar" 
   //   })
   //   console.log(reportData)
   // }

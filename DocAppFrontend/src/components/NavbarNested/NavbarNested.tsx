@@ -14,13 +14,13 @@ import { Logo } from './Logo';
 import classes from './NavbarNested.module.css';
 
 const mockdata = [
-  { label: 'Dashboard', icon: IconGauge },
+  { label: 'Medical Report', icon: IconGauge, link: '/' },
   {
-    label: 'Market news',
+    label: 'Report',
     icon: IconNotes,
     initiallyOpened: true,
     links: [
-      { label: 'Overview', link: '/' },
+      { label: 'Add Report', link: '/add-report' },
       { label: 'Forecasts', link: '/' },
       { label: 'Outlook', link: '/' },
       { label: 'Real time', link: '/' },

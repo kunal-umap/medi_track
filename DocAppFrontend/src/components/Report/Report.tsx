@@ -1,8 +1,8 @@
 import React from 'react'
-import './ReportPage.css'
+import './Report.css'
 
 //import temp from '../../Assets/Image/documentsave.jpg'
-export default function Report(props) {
+export default function Report(props: any) {
   return (
     <div className="report">
     <img className="RImg" src={`${props.src}`} alt="" />

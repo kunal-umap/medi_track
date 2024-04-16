@@ -2,10 +2,11 @@ import React, { useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 //import './MedicalRecords.css'
 import './MedicalReport.css'
+import Report from '@/components/Report/Report';
 
-import Report from '../../Components/Report/Report'
-xport default function MedicalRecords() {
-  //const navigate = useNavigate();
+
+export default function MedicalReport() {
+      //const navigate = useNavigate();
   // const [name,setName] = useState('');
   //const route = () => {
     // setName(localStorage.getItem('user'));
@@ -18,11 +19,7 @@ xport default function MedicalRecords() {
   //     navigate('/login');
   //   }
   // }, [route, navigate]);
-
-
-
   return (
-    
     <div className="MedicalRecord">
       <h1 className="mrHeading">Medical Record</h1>
       <div className="RecordsCont">
@@ -31,9 +28,7 @@ xport default function MedicalRecords() {
         <Report title="Report3"></Report>
         <Report title="Report4"></Report>
         <Report title="Report5"></Report>
-
       </div>
     </div>
-
   )
 }

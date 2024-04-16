@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import HomePage from './pages/HomePage/HomePage';
 import { ColorSchemeToggle } from './components/ColorSchemeToggle/ColorSchemeToggle';
+import MedicalReport from './pages/MedicalReport/MedicalReport';
+import AddReport from './pages/AddReport/AddReport';
 
 
 const router = createBrowserRouter([
@@ -11,10 +13,17 @@ const router = createBrowserRouter([
     element: <HomePage/>,
     children : [
       {
-        path: '/',
+        path: '/theme',
         element: <ColorSchemeToggle/>
+      },
+      {
+        path: '/',
+        element: <MedicalReport/>
+      },
+      {
+        path: '/add-report',
+        element: <AddReport />
       }
-      
     ]
   },
   {
