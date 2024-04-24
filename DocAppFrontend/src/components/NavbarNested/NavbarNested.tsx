@@ -35,9 +35,9 @@ const mockdata = [
       { label: 'Releases schedule', link: '/' },
     ],
   },
-  { label: 'Analytics', icon: IconPresentationAnalytics },
+  { label: 'Disease Prediction', icon: IconPresentationAnalytics, link:'/disease_predict' },
   { label: 'Contracts', icon: IconFileAnalytics },
-  { label: 'Settings', icon: IconAdjustments },
+  { label: 'Settings', icon: IconAdjustments, link:'/theme' },
   {
     label: 'Security',
     icon: IconLock,

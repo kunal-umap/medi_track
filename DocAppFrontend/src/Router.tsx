@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage/HomePage';
 import { ColorSchemeToggle } from './components/ColorSchemeToggle/ColorSchemeToggle';
 import MedicalReport from './pages/MedicalReport/MedicalReport';
 import AddReport from './pages/AddReport/AddReport';
+import Diseasepredict from './pages/DiseasePredict/Diseasepredict';
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/add-report',
         element: <AddReport />
+      },
+      {
+        path: '/disease_predict',
+        element: <Diseasepredict />
       }
     ]
   },
