@@ -7,20 +7,21 @@ import MedicalReport from './pages/MedicalReport/MedicalReport';
 import AddReport from './pages/AddReport/AddReport';
 import Diseasepredict from './pages/DiseasePredict/Diseasepredict';
 import DispReport from './pages/DispReport/DispReport';
+import DisplayReport from './pages/DisplayReport/DisplayReport';
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage/>,
-    children : [
+    element: <HomePage />,
+    children: [
       {
         path: '/theme',
-        element: <ColorSchemeToggle/>
+        element: <ColorSchemeToggle />
       },
       {
         path: '/',
-        element: <MedicalReport/>
+        element: <MedicalReport />
       },
       {
         path: '/add-report',
@@ -32,13 +33,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/report-data',
-        element: <DispReport/>
-      }
+        element: <DispReport />
+      },
+      {
+        path: '/display-report',
+        element: <DisplayReport />
+      },
     ]
   },
   {
     path: '/login-signup',
-    element: <LoginSignup/> ,
+    element: <LoginSignup />,
   },
 ]);
 
