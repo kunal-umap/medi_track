@@ -6,6 +6,7 @@ import { ColorSchemeToggle } from './components/ColorSchemeToggle/ColorSchemeTog
 import MedicalReport from './pages/MedicalReport/MedicalReport';
 import AddReport from './pages/AddReport/AddReport';
 import Diseasepredict from './pages/DiseasePredict/Diseasepredict';
+import DisplayReport from './pages/DisplayReport/DisplayReport';
 
 
 const router = createBrowserRouter([
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
       {
         path: '/disease_predict',
         element: <Diseasepredict />
-      }
+      },
+      {
+        path: '/display-report',
+        element: <DisplayReport/>
+      },
     ]
   },
   {
