@@ -1,0 +1,15 @@
+.repHeading
+{
+    font-weight: normal;
+    background-color: rgb(68, 92, 92);
+}
+
+.presp{
+    width: 60%;
+    height: 100px;
+}
+.presp img{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+}
