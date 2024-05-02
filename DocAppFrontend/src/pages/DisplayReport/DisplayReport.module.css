@@ -1,15 +1,105 @@
-.repHeading
+*
 {
-    font-weight: normal;
-    background-color: rgb(68, 92, 92);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.DisplayRepPage
+{
+    width: 80%;
+    min-height: 100px;
+   /* border: 1px solid black;*/
+    margin: auto;
+}
+.Box
+{
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+}
+.Box .RepLeft
+{
+    width: 60%;
+    min-height: 60px;
+   /* border: 1px solid red;*/
+}
+.RepLeft .Report
+{
+    width: 100%;
+    min-height: 60px;
+    /*background-color: aqua;*/
+}
+.Report h3{
+    padding: 10px;
+}
+.Report .Image{
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
 }
 
-.presp{
-    width: 60%;
-    height: 100px;
-}
-.presp img{
+.Box .RepPrescrip
+{
     width: 100%;
-    height: 100px;
-    background-color: black;
+    min-height: 60px;
+  /*  border: 1px solid red;*/
+    margin-top: 10px;
+}
+.RepPrescrip h3{
+    padding: 10px;
+}
+.RepPrescrip .Images{
+    width: 70%;
+    height: 250px;
+    margin-left: 10px;
+}
+.Images img{
+    width: 100%;
+    height: 100%;
+}
+.RepRight
+{
+    width: 30%;
+    min-height: 30px;
+    margin-top: 20px;
+    
+    margin-right: 100px;
+    text-align: start;
+}
+.RepRight img{
+    width: 100%;
+    height: 40%;
+}
+.RepRight .HospName
+{
+    width: 100%;
+    height: 40px;
+    /*border: 1px solid black;*/
+    margin-top: 20px;
+}
+
+.RepRight .DoctName
+{
+    width: 100%;
+    height: 40px;
+    /*border: 1px solid black;*/
+    margin-top: 10px;
+}
+
+.RepRight .Date
+{
+    width: 100%;
+    height: 40px;
+   /* border: 1px solid black;*/
+    margin-top: 10px;
+    font-weight: none;
+}
+
+.RepRight .Remarks
+{
+    width: 100%;
+    height: 40px;
+   /* border: 1px solid black;*/
+    margin-top: 10px;
 }
