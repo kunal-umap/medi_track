@@ -10,8 +10,7 @@ const videoConstraints = {
 };
 
 const uploadFile = () => {
-  // Implement the logic to upload the file
-  // For now, you can log a message indicating that the file is being uploaded
+  
   console.log('Uploading file...');
 };
 

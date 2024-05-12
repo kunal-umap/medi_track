@@ -1,0 +1,36 @@
+/* PatientDashboard.css */
+
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
+}
+.dashboard-container .main-card{
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard-container .card{
+  width: 40vh;
+  height: 60vh;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.dashboard-container .card .input-container input{
+  margin: 10px;
+  width: 40px;
+}
+.dashboard-container .card .card-button{
+  display: flex;
+}
+.add-entry-btn{
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.delete-entry-btn{
+  margin-left: 10px;
+  margin-top: 10px;
+}
