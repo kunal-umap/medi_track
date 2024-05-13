@@ -1,33 +1,41 @@
-import React, { useEffect} from 'react'
+import React, { useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 //import './MedicalRecords.css'
 import './MedicalReport.css'
 import Report from '@/components/Report/Report';
+import { getRecordAction } from '@/container/action';
 
 
 export default function MedicalReport() {
-      //const navigate = useNavigate();
-  // const [name,setName] = useState('');
-  //const route = () => {
-    // setName(localStorage.getItem('user'));
-   // const key = localStorage.getItem('user-authentication-token');
-    //return key ? true : false;
-  //}
+  const [name,setName] = useState('');
+  const [repa,setReps] = useState([]);
 
-  // useEffect(() => {
-  //   if (!route()) {
-  //     navigate('/login');
-  //   }
-  // }, [route, navigate]);
+  
+  useEffect(() => {
+    setName(localStorage.getItem('user')?? '');
+    const reportData = getRecordAction({
+      username: localStorage.getItem('user')
+    }).then(data => {
+      console.log(data)
+      setReps(data)
+      localStorage.setItem('reps',JSON.stringify(repa));
+    }).catch(err => {
+      console.log(err)
+    })
+  
+  }, []);
+  const steps: any = [];
   return (
     <div className="MedicalRecord">
       <h1 className="mrHeading">Medical Record</h1>
       <div className="RecordsCont">
-        <Report title="Report1"></Report>
-        <Report title="Report2"></Report>
-        <Report title="Report3"></Report>
-        <Report title="Report4"></Report>
-        <Report title="Report5"></Report>
+      {repa.forEach((ele: any,idx) =>{
+            console.log(idx)
+             steps.push(<Report key={idx} idx={idx} title={ele.description} src={ele.image} hospital={ele.hospitalName} date={ele.date} />)
+          })}
+        {
+          steps
+        }
       </div>
     </div>
   )

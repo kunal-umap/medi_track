@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef } from 'react';
 import AddReSty from './AddReport.module.css';
 import Webcam from 'react-webcam';
 import { FileInput, Button } from '@mantine/core';
+import { saveReportAction } from '@/container/action';
 
 const videoConstraints = {
   width: 200,
@@ -9,20 +10,56 @@ const videoConstraints = {
   facingMode: 'user',
 };
 
-const uploadFile = () => {
-  // Implement the logic to upload the file
-  // For now, you can log a message indicating that the file is being uploaded
-  console.log('Uploading file...');
-};
-
 export default function AddReport() {
+    const [image, setImage] = useState("");
   const [picture, setPicture] = useState('');
+  const [name, setName] = useState('');
+  let newDate = new Date()
   const webcamRef = useRef(null);
 
   const capture = useCallback(() => {
-    const pictureSrc = webcamRef.current.getScreenshot();
+    const pictureSrc: any = webcamRef.current.getScreenshot();
     setPicture(pictureSrc);
   }, [webcamRef]);
+
+
+  const submitImage = async () => {
+    const data = new FormData()
+    if(image == ''){
+      data.append("file", picture)
+    }else {
+      data.append("file", image)
+    }
+    data.append("upload_preset", "demoApp")
+    data.append("cloud_name", "dugv0emid")
+
+    await fetch("https://api.cloudinary.com/v1_1/dugv0emid/image/upload", {
+      method: "POST",
+      body: data
+    })
+      .then((res) => res.json())
+      .then(async (data) => {
+        setName(localStorage.getItem('user')??'');
+        const upd = saveReportAction({
+          hospitalName: "hospitalName",
+          date: `${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()}`,
+          image: data.url,
+          description: "Medical Report",
+          username: localStorage.getItem('user')
+        })
+        console.log(upd, {
+          hospitalName: "hospitalName",
+          date: `${newDate.getDate()}/${newDate.getMonth()}/${newDate.getFullYear()}`,
+          image: data.url,
+          description: "Medical Report",
+          username: localStorage.getItem('user')
+        })
+
+      }).catch((err) => {
+        console.log(err)
+      })
+
+  }
 
   return (
     <div className={AddReSty.Addre_main_container}>
@@ -80,9 +117,10 @@ export default function AddReport() {
            <FileInput
             label="Select File"
             placeholder="select file from your device"
+            onChange={(e: any)=> setPicture(e.target.value)}
           />
 
-          <Button onClick={uploadFile}>Upload File</Button>
+          <Button onClick={submitImage}>Upload File</Button>
 
 
         </div>

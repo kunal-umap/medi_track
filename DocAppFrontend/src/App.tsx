@@ -6,7 +6,7 @@ import './global.css'
 
 export default function App() {
   return (
-    <MantineProvider theme={theme}>
+    <MantineProvider  theme={theme}>
       <Router />
     </MantineProvider>
   );

@@ -25,7 +25,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
-    "react-webcam": "^7.2.0"
+    "react-webcam": "^7.2.0",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.0.0",

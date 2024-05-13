@@ -1,16 +1,62 @@
-import  { useState } from 'react';
-import './LoginSignup.css'; 
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import './LoginSignup.css';
+import { loginAction, signupAction } from '@/container/action';
+import { useNavigate } from 'react-router-dom';
 
 function LoginSignup() {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [username, setusername] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSignUpClick = () => {
-    setIsSignUpMode(true);
+    let values = {
+      email,
+      password,
+      conformPassword: password,
+      username
+    }
+    const validate = dispatch(signupAction(values));
+
+    validate
+      .then((data: any) => {
+        console.log(data)
+        navigate('/login-signup');
+      })
+      .catch((error: any) => {
+        alert(error.err);
+      })
+      setIsSignUpMode(true);
   };
 
   const handleSignInClick = () => {
-    setIsSignUpMode(false);
+    let values = {
+      email,
+      password,
+    }
+    console.log(values)
+    const validate = dispatch(loginAction(values));
+
+    validate
+      .then((data: any) => {
+        console.log(data)
+        navigate('/');
+      })
+      .catch((error: any) => {
+        alert(error.err);
+      })
+
   };
+  const handleSignIN = ()=>{
+    setIsSignUpMode(false);
+  }
+  const handleSignUP = ()=>{
+    setIsSignUpMode(true);
+
+  }
 
   return (
     <div className={`container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
@@ -20,13 +66,13 @@ function LoginSignup() {
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="email" onChange={e => setemail(e.target.value)} />
             </div>
             <div className="input-field">
               <i className="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} />
             </div>
-            <input type="submit" value="Login" className="btn solid" />
+            <input type="submit" value="Login" className="btn solid" onClick={handleSignInClick}/>
             {/* <p className="social-text">Or Sign in with social platforms</p>
             <div className="social-media">
               <a href="#" className="social-icon">
@@ -47,17 +93,17 @@ function LoginSignup() {
             <h2 className="title">Sign up</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Username" onChange={e => setusername(e.target.value)} />
             </div>
             <div className="input-field">
               <i className="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" onChange={e => setemail(e.target.value)} />
             </div>
             <div className="input-field">
               <i className="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} />
             </div>
-            <input type="submit" className="btn" value="Sign up" />
+            <input type="submit" className="btn" value="Sign up" onClick={handleSignUpClick} />
             {/* <p className="social-text">Or Sign up with social platforms</p>
             <div className="social-media">
               <a href="#" className="social-icon">
@@ -85,7 +131,7 @@ function LoginSignup() {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
               ex ratione. Aliquid!
             </p>
-            <button className="btn transparent" onClick={handleSignUpClick}>
+            <button className="btn transparent" onClick={handleSignUP}>
               Sign up
             </button>
           </div>
@@ -98,7 +144,7 @@ function LoginSignup() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
               laboriosam ad deleniti.
             </p>
-            <button className="btn transparent" onClick={handleSignInClick}>
+            <button className="btn transparent"  onClick={handleSignIN}>
               Sign in
             </button>
           </div>
