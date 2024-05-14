@@ -134,13 +134,13 @@ const PatientDashboard = () => {
           <button className="delete-entry-btn" onClick={() => deleteEntry(data.id)}>Delete Entry</button>
           </div>
         </div>
-        <div className="chart-container">
-        <canvas id="healthChart"></canvas>
-      </div>
+       
         </div>
        
       ))}
-      
+       <div className="chart-container">
+        <canvas id="healthChart"></canvas>
+      </div>
     </div>
   );
 }
