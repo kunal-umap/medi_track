@@ -14,18 +14,22 @@ exports.signup = async (req,res)=>{
         let {email,password,conformPassword,username} = req.body;
         if(!email || !password || !conformPassword || !username){
             res.status(406).json({err:"You have to fille"})
+            return;
         }
         if( password.length < 8 ){
             res.status(406).json({err:"password is not strong"})
+            return;
         }
         // if( !mobileNo ){
         //     res.status(406).json({err:"enter mobile no"})
         // }
         if( username.length < 2 ){
             res.status(406).json({err:"choose another username"})
+            return;
         }
         if( password !== conformPassword ){
             res.status(406).json({err:"password is not matching to conform password"})
+            return;
         }
         if(! String(email)
         .toLowerCase()
