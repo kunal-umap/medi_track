@@ -8,6 +8,8 @@ import AddReport from './pages/AddReport/AddReport';
 import Diseasepredict from './pages/DiseasePredict/Diseasepredict';
 import DispReport from './pages/DispReport/DispReport';
 import DisplayReport from './pages/DisplayReport/DisplayReport';
+import UserInfo from './pages/UserInfo/UserInfo';
+import PatientDashboard from './pages/PatientDashboard/PatientDashboard';
 
 
 const router = createBrowserRouter([
@@ -39,6 +41,15 @@ const router = createBrowserRouter([
         path: '/display-report',
         element: <DisplayReport />
       },
+      {
+        path: '/user-info',
+        element: <UserInfo/>
+      },
+      {
+        path: '/patient-dashboard',
+        element: <PatientDashboard/>
+      },
+
     ]
   },
   {

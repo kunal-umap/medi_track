@@ -1,0 +1,50 @@
+.UserInfocontainer{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+.userName{
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.buttonEdit{
+    align-items: center;
+    text-align: center;
+}
+button{
+    align-items: center;
+    background-color: rgb(106, 153, 255);
+    width: 8rem;
+    height: 2rem;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+.card{
+    border: solid;
+    border-color: rgb(209, 208, 208);
+    border-width: 1px;
+    height: 80vh;
+    width: 25%;
+    margin: 1.2rem;
+    padding: 2rem;
+    text-align: center;
+}
+.innerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 1023px) {
+    .innerContainer{
+        flex-direction: column;
+    }
+    .card{
+        width: 240px;
+    }
+}
+
+
+
