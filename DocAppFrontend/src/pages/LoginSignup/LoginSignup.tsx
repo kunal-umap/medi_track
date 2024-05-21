@@ -9,6 +9,11 @@ function LoginSignup() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [username, setusername] = useState("");
+  const [address, setaddress] = useState("");
+  const [bloodGroup, setbloodGroup] = useState("");
+  const [age, setage] = useState("");
+  const [mobileNo, setmobileNo] = useState("");
+  const [isDoc, setisDoc] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -17,7 +22,12 @@ function LoginSignup() {
       email,
       password,
       conformPassword: password,
-      username
+      username,
+      address ,
+      mobileNo,
+      bloodGroup,
+      age,
+      isDoc
     }
     const validate = dispatch(signupAction(values));
 
@@ -37,13 +47,18 @@ function LoginSignup() {
       email,
       password,
     }
-    console.log(values)
     const validate = dispatch(loginAction(values));
 
     validate
       .then((data: any) => {
-        console.log(data)
-        navigate('/');
+        console.log(data.isDoc)
+        if(data.isDoc){
+          navigate('/Doc');
+
+        }else {
+
+          navigate('/');
+        }
       })
       .catch((error: any) => {
         alert(error.err);
@@ -103,6 +118,30 @@ function LoginSignup() {
               <i className="fas fa-lock"></i>
               <input type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} />
             </div>
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
+              <input type="address" placeholder="Address" onChange={e => setaddress(e.target.value)} />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
+              <input type="number" placeholder="age" onChange={e => setage(e.target.value)} />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
+              <input type="Phone Number" placeholder="Phone Number" onChange={e => setmobileNo(e.target.value)} />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
+              <input type="Blood Group" placeholder="Blood Group" onChange={e => setbloodGroup(e.target.value)} />
+            </div>
+            <div style={{
+              display: "flex",
+              padding: "8px",
+            }}>
+              <label htmlFor="CheckBox">id Doctor ?</label>
+              <input type="checkbox" id="CheckBox" onChange={e => setisDoc(!isDoc)} />
+            </div>
+
             <input type="submit" className="btn" value="Sign up" onClick={handleSignUpClick} />
             {/* <p className="social-text">Or Sign up with social platforms</p>
             <div className="social-media">

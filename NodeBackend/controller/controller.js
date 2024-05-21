@@ -11,7 +11,7 @@ exports.signup = async (req,res)=>{
     }
     
     try {
-        let {email,password,conformPassword,username} = req.body;
+        let {email,password,conformPassword,username,address ,mobileNo,bloodGroup,age,isDoc} = req.body;
         if(!email || !password || !conformPassword || !username){
             res.status(406).json({err:"You have to fille"})
             return;
@@ -41,13 +41,14 @@ exports.signup = async (req,res)=>{
 
         // using schema for doc stricture
         const newUser = new User({
-            // name,
             email,
             password:hashPass ,
             username,
-            // mobileNo,
-            // age,
-            // bloodGroup
+            address, 
+            mobileNo,
+            bloodGroup,
+            age,
+            isDoc
         });
 
 
@@ -103,7 +104,7 @@ exports.login =async (req,res)=>{
         // creat jet token 
 
         const verifyJwt = jwt.sign({id:user._id},process.env.JWT_SECRET);
-        res.json({verifyJwt,username: user.username,email: user.email,Name: user.name});
+        res.json({verifyJwt,username: user.username,email: user.email,Name: user.name,isDoc: user.isDoc});
         
     } catch (error) {
         res.status(500).json({err:error.message || "Some error occured"})

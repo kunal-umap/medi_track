@@ -10,8 +10,10 @@ export default function MedicalReport() {
   const [name,setName] = useState('');
   const [repa,setReps] = useState([]);
 
-  
+  const nav = useNavigate();
   useEffect(() => {
+
+    localStorage.getItem('isDoc')?nav('/Doc'):"";
     setName(localStorage.getItem('user')?? '');
     const reportData = getRecordAction({
       username: localStorage.getItem('user')

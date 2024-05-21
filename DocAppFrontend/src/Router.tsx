@@ -11,6 +11,7 @@ import DisplayReport from './pages/DisplayReport/DisplayReport';
 import UserInfo from './pages/UserInfo/UserInfo';
 import PatientDashboard from './pages/PatientDashboard/PatientDashboard';
 import LiveData from './pages/LiveData/LiveData';
+import Doc from './pages/Doc/Doc';
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         path: '/dataLive',
         element: <LiveData/>
       },
+      {
+        path: '/Doc',
+        element: <Doc/>
+      }
 
     ]
   },

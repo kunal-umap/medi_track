@@ -27,6 +27,9 @@ export const login = async (user: any) =>{
         if(response.data.verifyJwt){
             localStorage.setItem('user',response.data.username);
         }
+        if(response.data.isDoc){
+            localStorage.setItem('isDoc',response.data.isDoc);
+        }
         return Promise.resolve(response.data)
     })
     .catch(error => {

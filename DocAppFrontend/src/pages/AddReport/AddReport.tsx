@@ -14,6 +14,8 @@ export default function AddReport() {
     const [image, setImage] = useState("");
   const [picture, setPicture] = useState('');
   const [name, setName] = useState('');
+  const [hosp, sethosp] = useState('');
+  const [Discript, setDiscript] = useState('');
   let newDate = new Date()
   const webcamRef = useRef(null);
 
@@ -41,10 +43,10 @@ export default function AddReport() {
       .then(async (data) => {
         setName(localStorage.getItem('user')??'');
         const upd = saveReportAction({
-          hospitalName: "hospitalName",
+          hospitalName: hosp,
           date: `${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()}`,
           image: data.url,
-          description: "Medical Report",
+          description: Discript,
           username: localStorage.getItem('user')
         })
         console.log(upd, {
@@ -68,12 +70,6 @@ export default function AddReport() {
       <h4>Add report</h4>
       <div className={AddReSty.Addre_Textcontainer}>
         <h2>Upload a report.</h2>
-        <p>
-          Snap or upload a photo of your report. Make sure the text is clear and
-          all corners are visible.
-        </p>
-        <a href="#how-to-capture">How to capture.</a>
-        <a href="#what-can-add">What can I add?.</a>
       </div>
 
       <div className={AddReSty.Addre_Downcontainer}>
@@ -121,6 +117,11 @@ export default function AddReport() {
             placeholder="select file from your device"
             onChange={(e: any)=> setPicture(e.target.value)}
           />
+
+          <div className={AddReSty.Hos_Dis}>
+            <input type="text" onChange={e => sethosp(e.target.value)} placeholder='Hospital Name' />
+            <input type="text"  onChange={e => setDiscript(e.target.value)} placeholder='Discription' />
+          </div>
 
           <Button onClick={submitImage}>Upload File</Button>
 

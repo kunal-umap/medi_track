@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const userDataSchema = new mongoose.Schema({
-    name: {
+    address: {
         type: String,
         required: false
     },
@@ -33,6 +33,10 @@ const userDataSchema = new mongoose.Schema({
     bloodGroup: {
         type: String,
         require: false
+    },
+    isDoc: {
+        type: Boolean,
+        require: true,
     }
 });
 
