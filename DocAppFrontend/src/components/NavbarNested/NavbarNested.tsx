@@ -21,32 +21,32 @@ const mockdata = [
     initiallyOpened: true,
     links: [
       { label: 'Add Report', link: '/add-report' },
-      { label: 'Forecasts', link: '/' },
-      { label: 'Outlook', link: '/' },
-      { label: 'Real time', link: '/' },
+      { label: 'patient dashboard', link: '/patient-dashboard' },
+      // { label: 'Outlook', link: '/' },
+      // { label: 'Real time', link: '/' },
     ],
   },
-  {
-    label: 'Releases',
-    icon: IconCalendarStats,
-    links: [
-      { label: 'Upcoming releases', link: '/' },
-      { label: 'Previous releases', link: '/' },
-      { label: 'Releases schedule', link: '/' },
-    ],
-  },
+  // {
+  //   label: 'Releases',
+  //   icon: IconCalendarStats,
+  //   links: [
+  //     { label: 'Upcoming releases', link: '/' },
+  //     { label: 'Previous releases', link: '/' },
+  //     { label: 'Releases schedule', link: '/' },
+  //   ],
+  // },
   { label: 'Disease Prediction', icon: IconPresentationAnalytics, link:'/disease_predict' },
-  { label: 'Contracts', icon: IconFileAnalytics },
+  { label: 'Live Sensor Data', icon: IconFileAnalytics, link: '/dataLive'},
   { label: 'Settings', icon: IconAdjustments, link:'/theme' },
-  {
-    label: 'Security',
-    icon: IconLock,
-    links: [
-      { label: 'Enable 2FA', link: '/' },
-      { label: 'Change password', link: '/' },
-      { label: 'Recovery codes', link: '/' },
-    ],
-  },
+  // {
+  //   label: 'Security',
+  //   icon: IconLock,
+  //   links: [
+  //     { label: 'Enable 2FA', link: '/' },
+  //     { label: 'Change password', link: '/' },
+  //     { label: 'Recovery codes', link: '/' },
+  //   ],
+  // },
 ];
 
 export function NavbarNested() {
@@ -55,10 +55,7 @@ export function NavbarNested() {
   return (
     <nav className={classes.navbar}>
       <div className={classes.header}>
-        <Group justify="space-between">
-          <Logo style={{ width: rem(120) }} />
-          {/* <Code fw={700}>v3.1.2</Code> */}
-        </Group>
+        MediTrack
       </div>
 
       <ScrollArea className={classes.links}>

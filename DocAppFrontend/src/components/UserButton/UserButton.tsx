@@ -1,8 +1,16 @@
 import { UnstyledButton, Group, Avatar, Text, rem } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons-react';
 import classes from './UserButton.module.css';
+import { useEffect, useState } from 'react';
 
 export function UserButton() {
+ const [user, Setuser]  = useState("");
+
+ useEffect(()=>{
+  Setuser(localStorage.getItem('user') ?? "")
+ },[])
+
+
   return (
     <UnstyledButton className={classes.user}>
       <Group>
@@ -13,7 +21,7 @@ export function UserButton() {
 
         <div style={{ flex: 1 }}>
           <Text size="sm" fw={500}>
-            Harriette Spoonlicker
+            {user}
           </Text>
 
           <Text c="dimmed" size="xs">

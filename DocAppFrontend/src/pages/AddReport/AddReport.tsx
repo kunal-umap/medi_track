@@ -54,9 +54,11 @@ export default function AddReport() {
           description: "Medical Report",
           username: localStorage.getItem('user')
         })
+        alert('file Uploded');
 
       }).catch((err) => {
         console.log(err)
+        alert(err)
       })
 
   }

@@ -10,6 +10,7 @@ import DispReport from './pages/DispReport/DispReport';
 import DisplayReport from './pages/DisplayReport/DisplayReport';
 import UserInfo from './pages/UserInfo/UserInfo';
 import PatientDashboard from './pages/PatientDashboard/PatientDashboard';
+import LiveData from './pages/LiveData/LiveData';
 
 
 const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: '/patient-dashboard',
         element: <PatientDashboard/>
+      },
+      {
+        path: '/dataLive',
+        element: <LiveData/>
       },
 
     ]

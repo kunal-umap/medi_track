@@ -21,16 +21,9 @@ export default function HomePage() {
 
   return (
     <AppShell
-      header={{ height: 40 }}
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
       padding="md"
     >
-      <AppShell.Header >
-        <Group h="100%" px="md">
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-          <Text >DOC APP</Text>
-        </Group>
-      </AppShell.Header >
       <AppShell.Navbar >
         <NavbarNested />
       </AppShell.Navbar>
